@@ -11,7 +11,7 @@ const Friends = () => {
     console.log(friend,"friends");
     return (
        <div className=''>
-         <div className='container mx-auto'>
+         <div className='container mx-auto p-10'>
             <h2 className='font-bold text-3xl text-left'>Your Friends</h2>
              <br></br>
 
