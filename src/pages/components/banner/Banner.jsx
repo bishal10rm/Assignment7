@@ -5,13 +5,13 @@ const Banner = () => {
     return (
        <div className='text-center container mx-auto'>
          <div>
-            <h1 className='text-5xl font-bold'>Friends to keep close in your life</h1>
+            <h1 className='text-5xl font-bold p-4'>Friends to keep close in your life</h1>
             <p className='text-[#64748B]'>Your personal shelf of meaningful connections. Browse, tend, and nurture the</p>
-            <p className='text-[#64748B]'>relationships that matter most.</p>
-        </div>
+            <p className='text-[#64748B] '>relationships that matter most.</p>
+        </div><br></br>
 
         <div>
-            <button className='btn bg-[#244D3F] text-white'> <GoPlus />Add friend</button>
+            <button className='btn bg-[#244D3F] text-white p-4'> <GoPlus />Add friend</button>
         </div>
 
           <div className='flex p-5'>
@@ -44,6 +44,8 @@ const Banner = () => {
 </div>
           </div>
        </div>
+
+       
       
     );
 };
