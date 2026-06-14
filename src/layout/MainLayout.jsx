@@ -1,20 +1,16 @@
-import React from 'react';
-import Navbar from '../pages/components/shared/navbar/Navbar';
-import { Outlet } from 'react-router-dom';
-import Banner from '../pages/components/banner/Banner';
-import Friends from '../pages/components/friends/Friends';
-import Footer from '../pages/components/footer/Footer';
+import React from "react";
+import Navbar from "../pages/components/shared/navbar/Navbar";
+import { Outlet } from "react-router-dom";
+import Footer from "../pages/components/footer/Footer";
 
 const MainLayout = () => {
-    return (
-        <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Banner></Banner>
-            <Friends></Friends>
-            <Footer></Footer>
-        </div>
-    );
+  return (
+    <div>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </div>
+  );
 };
 
 export default MainLayout;
