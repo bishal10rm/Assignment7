@@ -1,6 +1,8 @@
 import React from "react";
 import { use } from "react";
 import { useParams } from "react-router";
+import { useContext } from "react";
+import { TimelineContext } from "../context/TimelineContext";
 import { IoIosCall } from "react-icons/io";
 import { MdOutlineTextsms } from "react-icons/md";
 import { CiVideoOn } from "react-icons/ci";
@@ -19,9 +21,17 @@ const FriendDetails = () => {
     (f) => f.id === Number(id)
   );
 
+  const { handleCheckIn } = useContext(TimelineContext);
+
   if (!friend) {
-    return <h2>Friend Not Found</h2>;
+    return <h1>Friend Not Found</h1>;
   }
+
+  
+  
+
+ 
+
 
   return (
     <div className="max-w-7xl mx-auto p-6">
@@ -154,20 +164,50 @@ const FriendDetails = () => {
 
               <div className="grid grid-cols-3 gap-4">
 
-                <button className="btn h-24 flex-col">
-                <IoIosCall />
-                  Call
-                </button>
+              <button
+  className="btn h-24 flex-col"
+  onClick={() =>
+    handleCheckIn({
+      id: Date.now(),
+      type: "Call",
+      title: `Call with ${friend.name}`,
+      date: new Date().toLocaleDateString(),
+    })
+  }
+>
+  <IoIosCall />
+  Call
+</button>
 
-                <button className="btn h-24 flex-col">
-                <MdOutlineTextsms />
-                  Text
-                </button>
+<button
+  className="btn h-24 flex-col"
+  onClick={() =>
+    handleCheckIn({
+      id: Date.now(),
+      type: "Text",
+      title: `Text with ${friend.name}`,
+      date: new Date().toLocaleDateString(),
+    })
+  }
+>
+  <MdOutlineTextsms />
+  Text
+</button>
 
-                <button className="btn h-24 flex-col">
-                <CiVideoOn />
-                  Video
-                </button>
+<button
+  className="btn h-24 flex-col"
+  onClick={() =>
+    handleCheckIn({
+      id: Date.now(),
+      type: "Video",
+      title: `Video with ${friend.name}`,
+      date: new Date().toLocaleDateString(),
+    })
+  }
+>
+  <CiVideoOn />
+  Video
+</button>
 
               </div>
             </div>
