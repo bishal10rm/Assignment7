@@ -3,6 +3,7 @@ import { use } from "react";
 import { useParams } from "react-router";
 import { useContext } from "react";
 import { TimelineContext } from "../context/TimelineContext";
+import { toast } from "react-toastify";
 import { IoIosCall } from "react-icons/io";
 import { MdOutlineTextsms } from "react-icons/md";
 import { CiVideoOn } from "react-icons/ci";
@@ -23,9 +24,19 @@ const FriendDetails = () => {
 
   const { handleCheckIn } = useContext(TimelineContext);
 
-  if (!friend) {
-    return <h1>Friend Not Found</h1>;
-  }
+
+  const addTimeline = (type) => {
+    const entry = {
+      id: Date.now(),
+      type,
+      title: `${type} with ${friend.name}`,
+     
+    };
+  
+    handleCheckIn(entry);
+  
+    toast.success(`${type.title}`);
+  };
 
   
   
@@ -165,9 +176,9 @@ const FriendDetails = () => {
               <div className="grid grid-cols-3 gap-4">
 
               <button
-  className="btn h-24 flex-col"
+  className="btn h-20 flex-col"
   onClick={() =>
-    handleCheckIn({
+    addTimeline({
       id: Date.now(),
       type: "Call",
       title: `Call with ${friend.name}`,
@@ -180,9 +191,9 @@ const FriendDetails = () => {
 </button>
 
 <button
-  className="btn h-24 flex-col"
+  className="btn h-20 flex-col"
   onClick={() =>
-    handleCheckIn({
+    addTimeline({
       id: Date.now(),
       type: "Text",
       title: `Text with ${friend.name}`,
@@ -195,9 +206,9 @@ const FriendDetails = () => {
 </button>
 
 <button
-  className="btn h-24 flex-col"
+  className="btn h-20 flex-col"
   onClick={() =>
-    handleCheckIn({
+    addTimeline({
       id: Date.now(),
       type: "Video",
       title: `Video with ${friend.name}`,
