@@ -41,7 +41,7 @@ const TimelinePage = () => {
         <div className="space-y-4">
           {timeline.map((item) => (
             <div
-              key={item.id}
+              key={item}
               className="card bg-base-100 shadow"
             >
               <div className="card-body">

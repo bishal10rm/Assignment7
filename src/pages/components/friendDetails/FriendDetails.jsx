@@ -24,18 +24,19 @@ const FriendDetails = () => {
 
   const { handleCheckIn } = useContext(TimelineContext);
 
+   
 
   const addTimeline = (type) => {
     const entry = {
       id: Date.now(),
-      type,
+      type: type,
       title: `${type} with ${friend.name}`,
-     
+      date: new Date().toLocaleDateString(),
     };
   
     handleCheckIn(entry);
   
-    toast.success(`${type.title}`);
+    toast.success(`${type} with ${friend.name}`);
   };
 
   
@@ -177,14 +178,7 @@ const FriendDetails = () => {
 
               <button
   className="btn h-20 flex-col"
-  onClick={() =>
-    addTimeline({
-      id: Date.now(),
-      type: "Call",
-      title: `Call with ${friend.name}`,
-      date: new Date().toLocaleDateString(),
-    })
-  }
+  onClick={() => addTimeline("Call")}
 >
   <IoIosCall />
   Call
@@ -192,14 +186,7 @@ const FriendDetails = () => {
 
 <button
   className="btn h-20 flex-col"
-  onClick={() =>
-    addTimeline({
-      id: Date.now(),
-      type: "Text",
-      title: `Text with ${friend.name}`,
-      date: new Date().toLocaleDateString(),
-    })
-  }
+  onClick={() => addTimeline("Text")}
 >
   <MdOutlineTextsms />
   Text
@@ -207,14 +194,7 @@ const FriendDetails = () => {
 
 <button
   className="btn h-20 flex-col"
-  onClick={() =>
-    addTimeline({
-      id: Date.now(),
-      type: "Video",
-      title: `Video with ${friend.name}`,
-      date: new Date().toLocaleDateString(),
-    })
-  }
+  onClick={() => addTimeline("Video")}
 >
   <CiVideoOn />
   Video
